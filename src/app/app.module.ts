@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth/auth-guard.service';
+import { AuthService } from './auth/auth.service';
 import { RecipeService } from './recipes/recipe.service';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,7 +46,7 @@ import { SigninComponent } from './auth/signin/signin.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
