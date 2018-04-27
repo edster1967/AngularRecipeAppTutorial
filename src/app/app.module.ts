@@ -1,3 +1,9 @@
+import { StoreDevToolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+
+
+
+import { reducers } from './ngrx/app.reducer';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -10,6 +16,9 @@ import { AuthModule } from './auth/auth.module'
 import { CoreModule } from './core/core.module';
 import { StoreModule } from '@ngrx/store';
 import { shoppingListReducer } from './shopping-list/ngrx/shopping-list.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/ngrx/auth.effects';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +32,11 @@ import { shoppingListReducer } from './shopping-list/ngrx/shopping-list.reducer'
     ShoppingListModule,
     AuthModule,
     CoreModule,
-    StoreModule.forRoot({shoppingList: shoppingListReducer})
+    //StoreModule.forRoot({shoppingList: shoppingListReducer})
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects]),
+    StoreRouterConnectingModule,
+    StoreDevToolsModule.instrument()
   ],                     
   bootstrap: [AppComponent]
 })
