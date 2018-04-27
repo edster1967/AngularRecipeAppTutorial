@@ -1,4 +1,5 @@
-import { StoreDevToolsModule } from '@ngrx/store-devtools';
+import { environment } from './../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 
@@ -36,7 +37,7 @@ import { AuthEffects } from './auth/ngrx/auth.effects';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),
     StoreRouterConnectingModule,
-    StoreDevToolsModule.instrument()
+    StoreDevtoolsModule.instrument()
   ],                     
   bootstrap: [AppComponent]
 })
