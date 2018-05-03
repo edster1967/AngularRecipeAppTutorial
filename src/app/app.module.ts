@@ -26,7 +26,7 @@ import { AuthEffects } from './auth/ngrx/auth.effects';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'my-universal-recipe-app'}),
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
