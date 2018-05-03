@@ -37,7 +37,7 @@ import { AuthEffects } from './auth/ngrx/auth.effects';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AuthEffects]),
     StoreRouterConnectingModule,
-    StoreDevtoolsModule.instrument()
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],                     
   bootstrap: [AppComponent]
 })
